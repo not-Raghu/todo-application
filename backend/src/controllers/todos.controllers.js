@@ -77,7 +77,6 @@ export const updateTodo = async (req,res) =>{
             });
         }
 
-
         return res.status(200).json({
             success: true,
             message: "Updated todo successfully",
@@ -105,8 +104,6 @@ export const deleteTodo = async (req,res) =>{
             });
         }
 
-
-        
         const deletedTodo = await Todo.findByIdAndDelete(todoId);
 
         if(!deletedTodo){
