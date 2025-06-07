@@ -4,19 +4,12 @@ import signinSchema from '../lib/zod-validators.js'
 import { User } from '../models/user.model.js';
 
 export const signupMiddleware = async (req,res,next) =>{
-    let { email, password, confirmPassword } = req.body;
+    let { email, password } = req.body;
 
     if(!email || !password){
         return res.status(400).json({
             success: false,
             message: "Please send required details"
-        });
-    }
-
-    if(password !== confirmPassword){
-        return res.status(400).json({
-            success: false,
-            message: "Passwords dont match"
         });
     }
 
